@@ -14,8 +14,8 @@
 
 	body, input, textarea, select
 	{
-		font-family: 'Source Sans Pro', sans-serif;
-		font-weight: 400;
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
 		color: #919499;
 	}
 
@@ -642,7 +642,7 @@
 
 	#header-wrapper
 	{
-		background: url('../images/banner.jpg') center center;
+		background: #0066FF center center;
 		background-size: cover;
 	}
 	
@@ -809,8 +809,6 @@
 		{
 			font-weight: 700;
 			color: #fff;
-			border-radius: 0.35em;
-			//box-shadow: inset 0px 0px 1px 1px rgba(255,255,255,0.25);
 		}
 		
 			#intro > .style2 a
