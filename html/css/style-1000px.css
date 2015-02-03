@@ -1,5 +1,6 @@
+
 /*
-	Escape Velocity by HTML5 UP
+	Escape Velocity 2.5 by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -7,11 +8,6 @@
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
-
-	body
-	{
-		min-width: 1000px;
-	}
 
 	body, input, select, textarea
 	{
@@ -34,6 +30,11 @@
 		padding: 4em 0 7em 0;
 	}
 
+	#header-wrapper
+	{
+		height: 400px !important;
+	}
+
 	#intro-wrapper
 	{
 		padding-bottom: 7em;
@@ -54,13 +55,8 @@
 
 	#header
 	{
-		padding: 10em 0;
+		height: 400px !important;
 	}
-
-		.homepage #header
-		{
-			padding: 14em 0;
-		}
 
 /*********************************************************************************/
 /* Logo                                                                          */
@@ -84,12 +80,12 @@
 	{
 	}
 
-		#intro > .style1
+		#intro .style1
 		{
 			font-size: 1.25em;
 		}
 	
-		#intro > .style2
+		#intro .style2
 		{
 			font-size: 2.25em;
 		}
