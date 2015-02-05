@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Alpha by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Generic - Alpha by HTML5 UP</title>
+		<title>Reactionly Recorder</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -30,7 +25,7 @@
 			<header id="header" class="skel-layers-fixed">
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>						
+						<li><a href="index.html">Home</a></li>
 						<li><a href="#" class="button">Sign Up</a></li>
 					</ul>
 				</nav>
@@ -38,9 +33,9 @@
 
 		<!-- Main -->
 			<section id="main" class="container">
-			<center><h2>Reactionly</h2></center>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/HZa1iFO0Juk" frameborder="0" allowfullscreen></iframe>
-			<div id="widget" style="float:right"></div>
+			<center><h2>Reactionly</h2>
+			<iframe width="500" height="315" src="https://www.youtube.com/embed/HZa1iFO0Juk" frameborder="0" allowfullscreen></iframe>
+			<div id="widget"></div>
 			<script>
 			      // 2. Asynchronously load the Upload Widget and Player API code.
 			      var tag = document.createElement('script');
@@ -58,27 +53,24 @@
 			        widget = new YT.UploadWidget('widget', {
 			          width: 500,
 			          events: {
-			            'onUploadSuccess': onUploadSuccess,
-			            'onProcessingComplete': onProcessingComplete
+			            'onProcessingComplete': onProcessingComplete,
+			            'onApiReady': onApiReady
 			          }
 			        });
 			      }
 
 			      // 4. This function is called when a video has been successfully uploaded.
-			      function onUploadSuccess(event) {
-			        alert('Video ID ' + event.data.videoId + ' was uploaded and is currently being processed.');
+			      function onProcessingComplete(event) {
+			      	window.open("https://www.youtube.com/watch?v=" + event.data.videoId,
+			      		"_blank");
 			      }
 
-			      // 5. This function is called when a video has been successfully processed.
-			      function onProcessingComplete(event) {
-			        player = new YT.Player('player', {
-			          height: 390,
-			          width: 640,
-			          videoId: event.data.videoId,
-			          events: {}
-			        });
+			      function onApiReady(event) {
+			      	widget.setVideoTitle("Reactionly - Record Your Reaction!");
+			      	widget.setVideoDescription("Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!");
+			      	widget.setVideoKeywords("reactionly");
 			      }
-			    </script>
+			    </script></center>
 			</section>
 
 		<!-- Footer -->
