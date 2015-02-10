@@ -34,8 +34,9 @@
 		<!-- Main -->
 			<section id="main" class="container">
 			<center><h2>Reactionly</h2>
-			<iframe width="500" height="315" src="https://www.youtube.com/embed/HZa1iFO0Juk" frameborder="0" allowfullscreen></iframe>
-			<div id="widget"></div>
+			<div id="player"></div>
+			<iframe id="widget" type="text/html" width="640" height="390"
+              src="https://www.youtube.com/upload_embed" frameborder="0"></iframe>
 			<script>
 			      // 2. Asynchronously load the Upload Widget and Player API code.
 			      var tag = document.createElement('script');
@@ -51,10 +52,10 @@
 			      var player;
 			      function onYouTubeIframeAPIReady() {
 			        widget = new YT.UploadWidget('widget', {
-			          width: 500,
 			          events: {
 			            'onProcessingComplete': onProcessingComplete,
-			            'onApiReady': onApiReady
+			            'onApiReady': onApiReady,
+                        'onStateChange': onStateChange
 			          }
 			        });
 			      }
@@ -64,6 +65,23 @@
 			      	window.open("https://www.youtube.com/watch?v=" + event.data.videoId,
 			      		"_blank");
 			      }
+
+                  function onStateChange(event) {
+                    if (event.data.state == YT.UploadWidgetState.RECORDING) {
+                        player = new YT.Player('player', {
+                            height: 390,
+                            width: 640,
+                            videoId: "HZa1iFO0Juk",
+                            playerVars: {
+                                autoplay: 1
+                            },
+                            events: {}
+                        });
+                    }
+                    else if (event.data.state == YT.UploadWidgetState.PENDING) {
+                        player.stopVideo();
+                    }
+                  }
 
 			      function onApiReady(event) {
 			      	widget.setVideoTitle("Reactionly - Record Your Reaction!");
