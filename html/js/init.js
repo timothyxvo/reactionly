@@ -4,6 +4,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+function scroll() {
+    $('html, body').animate({
+        scrollTop: $(".major").offset().top
+    }, 2000);
+}
+
 (function($) {
 
 	skel.init({
