@@ -34,12 +34,12 @@
 		<!-- Main -->
 			<section id="main" class="container">
 			<center><h2>Reactionly</h2>
+			<div id="reaction"></div>
 			<div id="player"></div>
 			<iframe id="widget" type="text/html" width="640" height="390"
               src="https://www.youtube.com/upload_embed" frameborder="0"></iframe>
-            <div id="share">
-            	<h3>Your video has been submitted for processing.
-            	<br>
+            <div id="share" class="hide">
+            	<h3>
             	Click to share your video!
             	</h3>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
@@ -69,23 +69,46 @@
 			            'onProcessingComplete': onProcessingComplete,
 			            'onApiReady': onApiReady,
                         'onStateChange': onStateChange,
-                        'onVideoIdAvailable': onVideoIdAvailable
+                        'onVideoIdAvailable': onVideoIdAvailable,
+                        'onUploadSuccess': onUploadSuccess
 			          }
 			        });
 			      }
 
 			      // 4. This function is called when a video has been successfully uploaded.
 			      function onProcessingComplete(event) {
-			      	window.open("https://www.youtube.com/watch?v=" + event.data.videoId,
-			      		"_blank");
+			      	player = new YT.Player('reaction', {
+                            height: 390,
+                            width: 640,
+                            videoId: videoID,
+                            playerVars: {
+                                autoplay: 1,
+                                loop: 1,
+                                playlist: videoID
+                            },
+                            events: {}
+                    });
 			      }
 
 			      function youtubeOpen() {
 			      	window.open("https://www.youtube.com/watch?v=" + videoID, "_blank");
 			      }
 
+			      function onUploadSuccess(event) {
+			      	// Remove Recorder widget and Youtube player from view
+			      	$("#widget").addClass("hide");
+			      	$("#player").remove();
+			      	// Un-hide our social media share icons
+			      	$("#share").removeClass("hide");
+			      	$("#reaction").html("<h3>Your video will display here when finished processing.<br><img height='25%' width='25%' src='http://fc06.deviantart.net/fs71/f/2013/073/4/1/loading_circle_fully_working_by_assasinna-d5xfzgb.gif'></h3>");
+			      }
+
 			      function onVideoIdAvailable(event) {
+			      	// Capture the video ID and save it into our global var
 			      	videoID = event.data.videoId;
+			      	widget.setVideoTitle("Reactionly - Record Your Reaction!");
+			      	widget.setVideoDescription("Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!");
+			      	widget.setVideoKeywords("reactionly");
 			      }
 
                   function onStateChange(event) {

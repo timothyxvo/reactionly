@@ -9,6 +9,10 @@
 
 /* Basic */
 
+	.hide {
+		display:none;
+	}
+
 	body {
 		background: #f5f5f5;
 	}
