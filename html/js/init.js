@@ -6,7 +6,7 @@
 
 function scroll() {
     $('html, body').animate({
-        scrollTop: $(".major").offset().top
+        scrollTop: $("#reactionly_info").offset().top
     }, 2000);
 }
 
