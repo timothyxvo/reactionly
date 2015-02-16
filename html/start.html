@@ -54,9 +54,20 @@
             	<a href="javascript:shareFB()"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/tumblr.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/google-plus.png"></a>
+            	<a id="twitter" class="twitter-share-button"
+				  href="https://twitter.com/share"
+				  data-url="https://www.youtube.com/watch?v="
+				  data-text="Check out my reaction!">
+				Tweet
+				</a>
+				<script>
+				window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+				</script>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/twitter.png"></a>
             	<a href="javascript:youtubeOpen()"><img height="35px" width="35px" src="/images/icons/youtube.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/email.png"></a>
+
+
             </div>
 
 			<script>
@@ -85,6 +96,10 @@
                         'onUploadSuccess': onUploadSuccess
 			          }
 			        });
+			      }
+
+			      function getVideoID() { 
+			      	return videoID;
 			      }
 
 			      // 4. This function is called when a video has been successfully uploaded.
@@ -125,6 +140,7 @@
 			      function onVideoIdAvailable(event) {
 			      	// Capture the video ID and save it into our global var
 			      	videoID = event.data.videoId;
+			      	$("#twitter").attr("data-url", "https://www.youtube.com/watch?v=" + videoID);
 			      	widget.setVideoTitle("Reactionly - Record Your Reaction!");
 			      	widget.setVideoDescription("Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!");
 			      	widget.setVideoKeywords("reactionly");
