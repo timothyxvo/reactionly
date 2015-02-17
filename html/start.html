@@ -30,6 +30,18 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=844547028921055&version=v2.0";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- Tumblr Share API -->
+    <script src="http://platform.tumblr.com/v1/share.js"></script>
+
+    <!-- Put this code at the bottom of your page -->
+    <script type="text/javascript">
+        var tumblr_button = document.createElement("a");
+        tumblr_button.setAttribute("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
+        tumblr_button.setAttribute("title", "Share on Tumblr");
+        tumblr_button.setAttribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:20px; height:20px; background:url('https://platform.tumblr.com/v1/share_4.png') top left no-repeat transparent;");
+        tumblr_button.innerHTML = "Share on Tumblr";
+        document.getElementById("tumblr_button_abc123").appendChild(tumblr_button);
+    </script>
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
@@ -52,7 +64,7 @@
             	Click to share your video!
             	</h3>
             	<a href="javascript:shareFB()"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
-            	<a href="#"><img height="35px" width="35px" src="/images/icons/tumblr.png"></a>
+            	<a href="javascript:shareTumblr()"><img height="35px" width="35px" src="/images/icons/tumblr.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/google-plus.png"></a>
             	<a href="https://twitter.com/intent/tweet?button_hashtag=reactionly&text=Check%20out%20my%20reaction!" class="twitter-hashtag-button" data-size="large" data-url="https://www.youtube.com/watch?v">Tweet #reactionly</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -78,6 +90,8 @@
 			      var widget;
 			      var player;
 			      var videoID;
+                  var tumblr_video_embed_code = "";
+                  var tumblr_video_caption = "";
 			      function onYouTubeIframeAPIReady() {
 			        widget = new YT.UploadWidget('widget', {
                       width: 640,
@@ -92,7 +106,7 @@
 			        });
 			      }
 
-			      function getVideoID() { 
+			      function getVideoID() {
 			      	return videoID;
 			      }
 
@@ -116,6 +130,12 @@
                       method: 'share',
                       href: 'https://www.youtube.com/watch?v=' + videoID,
                     }, function(response){});
+                  }
+
+                  function shareTumblr() {
+                    tumblr_video_embed_code = "https://www.youtube.com/watch?v=" + videoID;
+                    tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
+                    window.open("http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption), "width=650,height=1024,scollbars=1,resizable=1");
                   }
 
 			      function youtubeOpen() {
