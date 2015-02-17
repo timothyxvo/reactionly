@@ -34,6 +34,18 @@
 		<!-- Main -->
 			<section id="main" class="container">
 			<center><h2>Reactions</h2></center>
+            <p>
+                Listed below are all the video IDs returned when a search of Youtube is made for "Reactionly".
+            </p>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $.ajax({url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Reactionly&maxResults=50&key=AIzaSyDalXj94pqImZAVnkYA6ikUTTo141CHWB0", success: function(result){
+                            $.each(result.items, function(i, video) {
+                                $("#main").append(result.items[i].id.videoId + "<br>");
+                            });
+                    }});
+                });
+            </script>
 			</section>
 
 		<!-- Footer -->
