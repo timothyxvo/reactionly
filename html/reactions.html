@@ -19,7 +19,7 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-	<body>
+	<body style="width:100%;">
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
 				<nav id="nav">
@@ -33,19 +33,28 @@
 
 		<!-- Main -->
 			<section id="main" class="container">
-			<center><h2>Reactions</h2></center>
-            <p>
-                Listed below are all the video IDs returned when a search of Youtube is made for "Reactionly".
-            </p>
+			<center><h2>Reactions</h2>
+            <div id="reactions"></div>
             <script type="text/javascript">
                 $(document).ready(function(){
+                    var counter = 0;
+                    var curRow = "";
                     $.ajax({url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Reactionly&maxResults=50&key=AIzaSyDalXj94pqImZAVnkYA6ikUTTo141CHWB0", success: function(result){
                             $.each(result.items, function(i, video) {
-                                $("#main").append(result.items[i].id.videoId + "<br>");
+                                if (counter < 3) {
+                                    curRow = curRow + "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                    counter++;
+                                }
+                                else {
+                                    curRow = curRow + "<br>"
+                                    $("#reactions").append(curRow);
+                                    curRow = "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                    counter = 1;
+                                }
                             });
                     }});
                 });
-            </script>
+            </script></center>
 			</section>
 
 		<!-- Footer -->
