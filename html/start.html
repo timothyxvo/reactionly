@@ -16,6 +16,7 @@
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -64,7 +65,22 @@
             	<h3>
             	Click to share your video!
             	</h3>
-            	<a href="javascript:shareFB()"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
+
+				<a id="google" class="fa fa-google-plus-square fa-5x"></a>
+
+				<a id="facebook" class="fa fa-facebook-square fa-5x" href="javascript:shareFB()"></a> 
+
+				<a id="tumblr" class="fa fa-tumblr-square fa-5x" href="javascript:shareTumblr()"></a>
+
+				<a id="twitter" class="fa fa-twitter-square fa-5x"></a>
+				<a class="fa fa-youtube-square fa-5x" href="javascript:youtubeOpen()"></a>
+
+				<a id="pinterest" class="fa fa-pinterest-square fa-5x"></a>
+
+				<a id="reddit" class="fa fa-reddit-square fa-5x"></a>
+
+
+            	<!-- <a href="javascript:shareFB()"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
             	<a href="javascript:shareTumblr()"><img height="35px" width="35px" src="/images/icons/tumblr.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/google-plus.png"></a>
             	<a href="https://twitter.com/intent/tweet?button_hashtag=reactionly&text=Check%20out%20my%20reaction!" class="twitter-hashtag-button" data-size="large" data-url="https://www.youtube.com/watch?v">Tweet #reactionly</a>
@@ -73,7 +89,7 @@
             	<a href="#"><img height="35px" width="35px" src="/images/icons/twitter.png"></a>
             	<a href="javascript:youtubeOpen()"><img height="35px" width="35px" src="/images/icons/youtube.png"></a>
             	<a href="#"><img height="35px" width="35px" src="/images/icons/email.png"></a>
-
+ -->
 
             </div>
 
@@ -133,6 +149,15 @@
                     }, function(response){});
                   }
 
+                  function share() {
+
+                  	var url = "https://www.youtube.com/watch?v=" + videoID;
+                  	$("#twitter").attr("href", "https://twitter.com/intent/tweet?text=Reactionly&url=" + url);
+                   	$("#google").attr("href", "https://plus.google.com/share?url=" + url);  
+                  	$("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC")
+                  	$("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");                                                	
+                  }
+
                   function shareTumblr() {
                     tumblr_video_embed_code = "https://www.youtube.com/watch?v=" + videoID;
                     tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
@@ -155,10 +180,10 @@
 			      function onVideoIdAvailable(event) {
 			      	// Capture the video ID and save it into our global var
 			      	videoID = event.data.videoId;
-			      	$("#twitter").attr("data-url", "https://www.youtube.com/watch?v=" + videoID);
 			      	widget.setVideoTitle("Reactionly - Record Your Reaction!");
 			      	widget.setVideoDescription("Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!");
 			      	widget.setVideoKeywords("reactionly");
+			      	share();
 			      }
 
                   function onStateChange(event) {
