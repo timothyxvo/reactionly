@@ -31,8 +31,6 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=844547028921055&version=v2.0";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <!-- Tumblr Share API -->
-    <script src="http://platform.tumblr.com/v1/share.js"></script>
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
@@ -58,9 +56,9 @@
 
 				<a id="google" style="color:gray" class="fa fa-google-plus-square fa-4x animated-hover"></a>
 
-				<a id="facebook" style="color:gray" class="fa fa-facebook-square fa-4x animated-hover" href="javascript:shareFB()"></a>
+				<a id="facebook" style="color:gray" class="fa fa-facebook-square fa-4x animated-hover" href="#"></a>
 
-				<a id="tumblr" style="color:gray" class="fa fa-tumblr-square fa-4x animated-hover" href="javascript:shareTumblr()"></a>
+				<a id="tumblr" style="color:gray" class="fa fa-tumblr-square fa-4x animated-hover" href="#"></a>
 
 				<a id="twitter" style="color:gray" class="fa fa-twitter-square fa-4x animated-hover"></a>
 				<a style="color:gray" class="fa fa-youtube-square fa-4x animated-hover" href="javascript:youtubeOpen()"></a>
@@ -140,18 +138,10 @@
                   }
 
                   function share() {
-
-                  	var url = "https://www.youtube.com/watch?v=" + videoID;
+                    var url = "https://www.youtube.com/watch?v=" + videoID;
                   	$("#twitter").attr("href", "https://twitter.com/intent/tweet?text=Reactionly&url=" + url);
-                   	$("#google").attr("href", "https://plus.google.com/share?url=" + url);
-                  	$("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC")
+                  	$("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC");
                   	$("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");
-                  }
-
-                  function shareTumblr() {
-                    tumblr_video_embed_code = "https://www.youtube.com/watch?v=" + videoID;
-                    tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
-                    window.open("http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption), "width=650,height=1024,scollbars=1,resizable=1");
                   }
 
 			      function youtubeOpen() {
@@ -159,11 +149,21 @@
 			      }
 
 			      function onUploadSuccess(event) {
+                    var url = "https://www.youtube.com/watch?v=" + videoID;
+                    var tumblr_video_embed_code = url;
+                    var tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
+
 			      	// Remove Recorder widget and Youtube player from view
 			      	$("#widget").addClass("hide");
 			      	$("#player").remove();
 			      	// Un-hide our social media share icons
 			      	$("#share").removeClass("hide");
+                    $("#google").attr("href", "https://plus.google.com/share?url=" + url);
+                    $("#google").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
+                    $("#facebook").attr("onclick", "shareFB()");
+                    $("#tumblr").attr("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
+                    $("#tumblr").attr("title", "Share on Tumblr");
+                    $("#tumblr").attr("onclick", "window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;");
 			      	$("#reaction").html("<h3>Your video will display here when finished processing.<br><i class='fa fa-spinner fa-pulse fa-4x'></i></h3>");
 			      }
 
@@ -216,5 +216,7 @@
 				</ul>
 			</footer>
 
+
+            <script src="http://platform.tumblr.com/v1/share.js"></script>
 	</body>
 </html>
