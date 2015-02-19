@@ -34,16 +34,6 @@
     <!-- Tumblr Share API -->
     <script src="http://platform.tumblr.com/v1/share.js"></script>
 
-    <!-- Put this code at the bottom of your page -->
-    <script type="text/javascript">
-        var tumblr_button = document.createElement("a");
-        tumblr_button.setAttribute("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
-        tumblr_button.setAttribute("title", "Share on Tumblr");
-        tumblr_button.setAttribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:20px; height:20px; background:url('https://platform.tumblr.com/v1/share_4.png') top left no-repeat transparent;");
-        tumblr_button.innerHTML = "Share on Tumblr";
-        document.getElementById("tumblr_button_abc123").appendChild(tumblr_button);
-    </script>
-
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
 				<nav id="nav">
@@ -66,18 +56,18 @@
             	Click to share your video!
             	</h3>
 
-				<a id="google" class="fa fa-google-plus-square fa-5x"></a>
+				<a id="google" style="color:gray" class="fa fa-google-plus-square fa-4x animated-hover"></a>
 
-				<a id="facebook" class="fa fa-facebook-square fa-5x" href="javascript:shareFB()"></a> 
+				<a id="facebook" style="color:gray" class="fa fa-facebook-square fa-4x animated-hover" href="javascript:shareFB()"></a>
 
-				<a id="tumblr" class="fa fa-tumblr-square fa-5x" href="javascript:shareTumblr()"></a>
+				<a id="tumblr" style="color:gray" class="fa fa-tumblr-square fa-4x animated-hover" href="javascript:shareTumblr()"></a>
 
-				<a id="twitter" class="fa fa-twitter-square fa-5x"></a>
-				<a class="fa fa-youtube-square fa-5x" href="javascript:youtubeOpen()"></a>
+				<a id="twitter" style="color:gray" class="fa fa-twitter-square fa-4x animated-hover"></a>
+				<a style="color:gray" class="fa fa-youtube-square fa-4x animated-hover" href="javascript:youtubeOpen()"></a>
 
-				<a id="pinterest" class="fa fa-pinterest-square fa-5x"></a>
+				<a style="color:gray" id="pinterest" class="fa fa-pinterest-square fa-4x animated-hover"></a>
 
-				<a id="reddit" class="fa fa-reddit-square fa-5x"></a>
+				<a style="color:gray" id="reddit" class="fa fa-reddit-square fa-4x animated-hover"></a>
 
 
             	<!-- <a href="javascript:shareFB()"><img height="35px" width="35px" src="/images/icons/facebook.png"></a>
@@ -153,9 +143,9 @@
 
                   	var url = "https://www.youtube.com/watch?v=" + videoID;
                   	$("#twitter").attr("href", "https://twitter.com/intent/tweet?text=Reactionly&url=" + url);
-                   	$("#google").attr("href", "https://plus.google.com/share?url=" + url);  
+                   	$("#google").attr("href", "https://plus.google.com/share?url=" + url);
                   	$("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC")
-                  	$("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");                                                	
+                  	$("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");
                   }
 
                   function shareTumblr() {
@@ -174,7 +164,7 @@
 			      	$("#player").remove();
 			      	// Un-hide our social media share icons
 			      	$("#share").removeClass("hide");
-			      	$("#reaction").html("<h3>Your video will display here when finished processing.<br><i class='fa fa-spinner fa-spin fa-5x'></i></h3>");
+			      	$("#reaction").html("<h3>Your video will display here when finished processing.<br><i class='fa fa-spinner fa-pulse fa-4x'></i></h3>");
 			      }
 
 			      function onVideoIdAvailable(event) {
