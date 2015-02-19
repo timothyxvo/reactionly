@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Reactionly Recorder</title>
+		<title>Reactionly - Reactions</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -41,17 +41,20 @@
                     var curRow = "";
                     $.ajax({url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Reactionly&maxResults=50&key=AIzaSyDalXj94pqImZAVnkYA6ikUTTo141CHWB0", success: function(result){
                             $.each(result.items, function(i, video) {
-                                if (counter < 3) {
-                                    curRow = curRow + "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
-                                    counter++;
-                                }
-                                else {
-                                    curRow = curRow + "<br>"
-                                    $("#reactions").append(curRow);
-                                    curRow = "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
-                                    counter = 1;
+                                if (result.items[i].id.kind == "youtube#video") {
+                                    if (counter < 3) {
+                                        curRow = curRow + "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                        counter++;
+                                    }
+                                    else {
+                                        curRow = curRow + "<br>"
+                                        $("#reactions").append(curRow);
+                                        curRow = "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                        counter = 1;
+                                    }
                                 }
                             });
+                            $("#reactions").append(curRow);
                     }});
                 });
             </script></center>
