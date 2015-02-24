@@ -24,6 +24,25 @@ function loadRecorder() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
+function updateShareIcons() {
+    var url = "https://www.youtube.com/watch?v=" + videoID;
+    var tumblr_video_embed_code = url;
+    var tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
+
+    $("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");
+    $("#reddit").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
+    $("#youtube").attr("onclick", "youtubeOpen()");
+    $("#twitter").attr("href", "https://twitter.com/intent/tweet?text=Reactionly&url=" + url);
+    $("#twitter").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
+    $("#google").attr("href", "https://plus.google.com/share?url=" + url);
+    $("#google").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
+    $("#facebook").attr("onclick", "shareFB()");
+    $("#tumblr").attr("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
+    $("#tumblr").attr("title", "Share on Tumblr");
+    $("#tumblr").attr("onclick", "window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;");
+    $("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC");
+}
+
 function onYouTubeIframeAPIReady() {
     widget = new YT.UploadWidget('widget', {
         width: 640,
@@ -53,33 +72,19 @@ function onProcessingComplete(event) {
 }
 
 function onUploadSuccess(event) {
-    var url = "https://www.youtube.com/watch?v=" + videoID;
-    var tumblr_video_embed_code = url;
-    var tumblr_video_caption = "Record your reaction at reactionly.redirectme.net -- Reactionly - Record Your Reaction!";
-
     // Remove Recorder widget and Youtube player from view
     $("#widget").addClass("hide");
     $("#player").remove();
     // Un-hide our social media share icons
     $("#share").removeClass("hide");
-    $("#reddit").attr("href", "http://www.reddit.com/submit?url=" + url + "&title=Reactionly");
-    $("#reddit").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
-    $("#youtube").attr("onclick", "youtubeOpen()");
-    $("#twitter").attr("href", "https://twitter.com/intent/tweet?text=Reactionly&url=" + url);
-    $("#twitter").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
-    $("#google").attr("href", "https://plus.google.com/share?url=" + url);
-    $("#google").attr("onclick", "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;");
-    $("#facebook").attr("onclick", "shareFB()");
-    $("#tumblr").attr("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
-    $("#tumblr").attr("title", "Share on Tumblr");
-    $("#tumblr").attr("onclick", "window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;");
     $("#reaction").html("<h3>Your video will display here when finished processing.<br><i class='fa fa-spinner fa-pulse fa-4x'></i></h3>");
+
+    updateShareIcons();
 }
 
 function onVideoIdAvailable(event) {
     // Capture the video ID and save it into our global var
     videoID = event.data.videoId;
-    share();
 }
 
 function onApiReady(event) {
@@ -107,7 +112,7 @@ function onStateChange(event) {
 
 function share() {
     var url = "https://www.youtube.com/watch?v=" + videoID;
-    $("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC");
+
 
 }
 
