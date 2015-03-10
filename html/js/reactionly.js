@@ -104,6 +104,7 @@ function onStateChange(event) {
           },
           events: {}
       });
+
     }
     else if (event.data.state == YT.UploadWidgetState.PENDING) {
         player.stopVideo();
