@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+  <html lang="en" dir="ltr" >
+
+<head>
+  <title>YouTube Embedded Uploader</title>
+    <link rel="stylesheet" href="//s.ytimg.com/yts/cssbin/www-upload_embed-2x-webp-vflfW022N.css" name="www-upload_embed">
+
+      <link rel="stylesheet" href="//s.ytimg.com/yts/cssbin/www-core-2x-webp-vflYn3eh2.css" name="www-core">
+
+  <script>var ytcsi = {gt: function(n) {n = (n || '') + 'data_';return ytcsi[n] || (ytcsi[n] = {tick: {},span: {},info: {}});},tick: function(l, t, n) {ytcsi.gt(n).tick[l] = t || +new Date();},span: function(l, s, e, n) {ytcsi.gt(n).span[l] = (e ? e : +new Date()) - ytcsi.gt(n).tick[s];},setSpan: function(l, s, n) {ytcsi.gt(n).span[l] = s;},info: function(k, v, n) {ytcsi.gt(n).info[k] = v;},setStart: function(s, t, n) {ytcsi.info('yt_sts', s, n);ytcsi.tick('_start', t, n);}};(function(w, d) {ytcsi.perf = w.performance || w.mozPerformance ||w.msPerformance || w.webkitPerformance;ytcsi.setStart('dhs', ytcsi.perf ? ytcsi.perf.timing.responseStart : null);var isPrerender = (d.visibilityState || d.webkitVisibilityState) == 'prerender';var vName = d.webkitVisibilityState ? 'webkitvisibilitychange' : 'visibilitychange';if (isPrerender) {ytcsi.info('prerender', 1);var startTick = function() {ytcsi.setStart('dhs');d.removeEventListener(vName, startTick);};d.addEventListener(vName, startTick, false);}if (d.addEventListener) {d.addEventListener(vName, function() {ytcsi.tick('vc');}, false);}})(window, document);</script>
+</head>
+
+
+
+  <body id="" class="date-20150309 en_US ltr upload-embed-page    site-center-aligned site-as-giant-card  not-yt-legacy-css webkit webkit-537" dir="ltr">
+
+    <div id="embed-frame">
+    <div class="widget-start-screen">
+      <div id="widget-username-display"></div>
+      <div class="read-only-alert">
+        <div class="yt-alert yt-alert-default yt-alert-info  ">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert">    <div class="yt-alert-message">
+            We are currently in read-only mode. You can upload a video, but it will not go live until read-only mode is over.
+    </div>
+</div><div class="yt-alert-buttons"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="Close" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">Close</span></button></div></div>
+      </div>
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark" type="button" onclick=";return false;" id="webcam-button"><span class="yt-uix-button-content">Record from webcam</span></button>
+    </div>
+      <div id="webcam-app">
+    <div class="webcam-player">
+      <div id="webcam-aspect-ratio"></div>
+      <div id="reconnect-prompt">
+        <p>Something went wrong. Try to reconnect?</p>
+        <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark" type="button" onclick=";return false;" id="reconnect-button"><span class="yt-uix-button-content">Reconnect</span></button>
+      </div>
+      <div id="failure-message"> </div>
+      <div id="webcam-screen-container"></div>
+    </div>
+    <div class="webcam-volume-container">
+      <div class="webcam-volume-meter">
+        <div id="webcam-volume-level"></div>
+      </div>
+      <div class="webcam-volume-icon"></div>
+    </div>
+    <div class="webcam-video-footer">
+      <div class="webcam-video-controls">
+        <div class="webcam-timer-container">
+          <div id="playback-button" class="webcam-play-button play" role="button"></div>
+          <span id="webcam-timer">
+            <span class="current-time">0:00</span><span> / </span><span class="duration-time">0:00</span>
+          </span>
+        </div>
+      </div>
+      <div class="webcam-buttons">
+        <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark" type="button" onclick=";return false;" id="webcam-cancel-button"><span class="yt-uix-button-content">Cancel</span></button>
+        <div class="webcam-recording-state">
+          <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark yt-uix-button-has-icon webcam-record-button" type="button" onclick=";return false;" id="record-button"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-upload yt-sprite"></span></span><span class="yt-uix-button-content">Start recording</span></button>
+        </div>
+        <div id="stop-button-container" class="webcam-recording-state">
+          <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark yt-uix-button-has-icon webcam-stop-button" type="button" onclick=";return false;" id="stop-button"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-upload yt-sprite"></span></span><span class="yt-uix-button-content">Stop recording</span></button>
+          <span class="recording-time">0:00</span>
+        </div>
+        <div class="webcam-recording-state">
+          <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-dark yt-uix-button-has-icon webcam-start-over-button" type="button" onclick=";return false;" id="start-over-button"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-upload yt-sprite"></span></span><span class="yt-uix-button-content">Start over</span></button>
+        </div>
+        <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary" type="button" onclick=";return false;" id="webcam-publish-button"><span class="yt-uix-button-content">Continue</span></button>
+        <div id="confirm-start-over-dialog">
+            <div class="yt-dialog hid " role="dialog">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      
+  <p class="yt-spinner ">
+        
+  <span class="yt-spinner-img  yt-sprite" title="Loading icon"></span>
+
+    <span class="yt-spinner-message">
+Loading...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+            Are you sure you want to start over?
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        
+  <p class="yt-spinner ">
+        
+  <span class="yt-spinner-img  yt-sprite" title="Loading icon"></span>
+
+    <span class="yt-spinner-message">
+        Working...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+<div class="yt-dialog-footer">    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default   yt-dialog-dismiss" type="button" onclick=";return false;"><span class="yt-uix-button-content">Do not start over</span></button>
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary   yt-dialog-dismiss" type="button" onclick=";return false;" data-action="save"><span class="yt-uix-button-content">Start over</span></button>
+</div>        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+    <script src="//s.ytimg.com/yts/jsbin/www-upload_embed-vfl8vb8Ei/www-upload_embed.js" type="text/javascript" name="www-upload_embed/www-upload_embed"></script>
+
+  <script>
+      yt.setMsg('RECORD_CONFIRMATION', "The website at $domain would like to use your webcam to upload to YouTube.");
+      yt.setConfig({
+        'apiaryFeedbackClientId': "youtube_embedded_uploads:87791224.1:yGkcjA",
+        'apiaryFeedbackUrls': {"\/\/www-googleapis-staging.sandbox.google.com\/videofeedback\/v1\/feedback":0.001,"\/\/www.googleapis.com\/videofeedback\/v1\/feedback":0.999},
+        'CREATOR_CONTEXT': "U",
+        'frontendUploadIdBase': "c05c8b3e-9917-4621-8136-5dcdb4f91e38"
+      });
+
+        yt.setMsg({
+    'REGISTRATION_STATUS_FAILED': 'The upload has failed. Please <a href=\"\/\/support.google.com\/youtube\/answer\/166815?hl=en\" target=\"_blank\">follow these steps<\/a> and upload the file again.',
+    'REGISTRATION_STATUS_FAILED_USER_EMAIL_NOT_CONFIRMED': 'The upload has failed because your email address has not been confirmed.',
+    'REGISTRATION_STATUS_FAILED_UPLOAD_FORBIDDEN': 'You are currently not allowed to upload.'
+  });
+
+      yt.www.upload.EmbeddedUploader.setDateTimeConfig({"weekendRange":[6,5],"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"shortWeekdays":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"formatShortDate":"MMM d, yyyy","formatLongDate":"MMMM d, yyyy h:mm a","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"formatLongDateOnly":"MMMM d, yyyy","amPms":["AM","PM"],"formatWeekdayShortTime":"EE h:mm a","firstWeekCutoffDay":3,"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"firstDayOfWeek":0,"formatShortTime":"h:mm a","dateFormats":["MMMM d, yyyy h:mm a","MMMM d, yyyy","MMM d, yyyy","MMM d, yyyy"]});
+      var uploader = new yt.www.upload.EmbeddedUploader({"enableJsApi":false,"username":"Sean Marpo","rupioUrl":"https:\/\/www.youtube.com\/upload\/rupio?authuser=0","postMessageOrigin":"*","isReadOnly":false,"sessionIndex":0,"webcamWidth":480,"webcamHeight":360,"loginUrl":"\/upload_embed?action_login=1","defaultVideoCategory":"22","userToken":"L6FZYYL5dQ5cKI0kpMSpMOHQRfZ8MTQyNjY0NDgxM0AxNDI2MDQwMDEz"});
+        yt.setConfig({
+    'XSRF_TOKEN': "QUFFLUhqbTc3REo5TDF0aXlURzZzRnI3cUhmdDBRdDBlUXxBQ3Jtc0traTJPYUlzdk9wOGRKMXR3ZnhZcmh3YlVwWl9QOGVMRzhUcHNVcDh1Zm5aemU1YlRHTU1ZbVhRZ2NJaXJSX0lrNnZ3YllzYktCQU5HMzZ2THVVb3E5MjRMRXBhVEVDM2lXYUVMd2pmMTJTTEhmTFJIeFZ6TXlrTzNzei1NTEVILXNrWjliUGkzcF9ST3FxT0F5TDVCWWNIMUlHTHc=",
+    'XSRF_REDIRECT_TOKEN': "AJJhPwtisBhlU_OJt5oznq0_STF8MTQyNjEyNjQxM0AxNDI2MDQwMDEz",
+    'XSRF_FIELD_NAME': "session_token"
+  });
+
+  </script>
+
+    <script>
+      yt.setMsg('FLASH_UPGRADE', "\u003cdiv class=\"yt-alert yt-alert-default yt-alert-error  yt-alert-player\"\u003e  \u003cdiv class=\"yt-alert-icon\"\u003e\n    \u003cspan class=\"icon master-sprite yt-sprite\"\u003e\u003c\/span\u003e\n  \u003c\/div\u003e\n\u003cdiv class=\"yt-alert-content\" role=\"alert\"\u003e    \u003cdiv class=\"yt-alert-message\"\u003e\n            You need to upgrade your Adobe Flash Player to watch this video. \u003cbr\u003e \u003ca href=\"http:\/\/get.adobe.com\/flashplayer\/\"\u003eDownload it from Adobe.\u003c\/a\u003e\n    \u003c\/div\u003e\n\u003c\/div\u003e\u003cdiv class=\"yt-alert-buttons\"\u003e\u003c\/div\u003e\u003c\/div\u003e");
+  yt.setConfig({
+    'PLAYER_CONFIG': {"params":{"allowfullscreen":"true","allowscriptaccess":"always","bgcolor":"#000000"},"attrs":{"id":"flash-player"},"url":"https:\/\/s.ytimg.com\/yts\/swfbin\/player-vflrHIGKx\/video_camera.swf","args":{"apiId":"upload_embed","displayMessages":"false"},"url_v9as2":"","min_version":"8.0.0","html5":false}
+  });
+
+    yt.flash.embed("webcam-screen-container", yt.getConfig('PLAYER_CONFIG'));
+  </script>
+
+</body>
+</html>
