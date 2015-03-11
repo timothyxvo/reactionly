@@ -75,7 +75,7 @@ function updateShareIcons() {
     $("#tumblr").attr("href", "http://www.tumblr.com/share/video?embed=" + encodeURIComponent(tumblr_video_embed_code) + "&caption=" + encodeURIComponent(tumblr_video_caption));
     $("#tumblr").attr("title", "Share on Tumblr");
     $("#tumblr").attr("onclick", "window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;");
-    $("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&media=YOUR-IMAGE-SRC");
+    $("#pinterest").attr("href", "https://pinterest.com/pin/create/button/?url=" + url + "&description=Reactionly&is_video=true");
     $("#pinterest").attr("onclick", "window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;");
 }
 
