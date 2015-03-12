@@ -11,10 +11,12 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+        <link href="css/watch.css" rel="stylesheet" type="text/css">
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
+            <link rel="stylesheet" href="css/watch.css" />
 		</noscript>
 	</head>
 	<body style="width:100%;">
@@ -41,6 +43,9 @@
 			<center>
             <div id="reactions"></div>
             <script type="text/javascript">
+                var icons = "<span class='cn'><span class='inner'><a href='#zoom'><i class='fa fa-play-circle-o'></i></a><a href='#download'><i class='fa fa-play-circle-o'></i></a><a href='#comment'><i class='fa fa-play-circle-o'></i></a></span></span>";
+                var image = "<a class='image' href='https://www.youtube.com/watch?v="
+
                 $(document).ready(function(){
                     var counter = 0;
                     var curRow = "";
@@ -48,13 +53,13 @@
                             $.each(result.items, function(i, video) {
                                 if (result.items[i].id.kind == "youtube#video") {
                                     if (counter < 3) {
-                                        curRow = curRow + "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                        curRow = curRow + image + result.items[i].id.videoId + "'><img src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
                                         counter++;
                                     }
                                     else {
                                         curRow = curRow + "<br>"
                                         $("#reactions").append(curRow);
-                                        curRow = "<a href='https://www.youtube.com/watch?v=" + result.items[i].id.videoId + "'><img style='padding:5px' height='30%' width='30%' src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
+                                        curRow = image + result.items[i].id.videoId + "'><img src='" + result.items[i].snippet.thumbnails.medium.url +"'></a>";
                                         counter = 1;
                                     }
                                 }
