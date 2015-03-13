@@ -81,6 +81,7 @@ span.inner {
     opacity: 0;
     transition: all 1s;
     -webkit-transition: all 1s;
+    pointer-events: none;
 }
 
 .overlay:hover:after {
