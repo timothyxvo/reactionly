@@ -50,8 +50,8 @@ span.inner {
     height:151px;
     width:195px;
 }
-.overlay {
-/*    background:rgba(0, 0, 0, .75);
+/*.overlay {
+    background:rgba(0, 0, 0, .75);
     text-align:center;
     opacity:0;
     width:100%;height:100%;
@@ -59,8 +59,34 @@ span.inner {
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;*/
+    transition: all 0.3s ease-in-out;
+}*/
+.overlay {
+    position: relative;
 }
+
+.overlay img {
+    width: 100%;
+    vertical-align: top
+}
+
+.overlay:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+.overlay:hover:after {
+    opacity: 1;
+}
+
 .box:hover {
     border:1px solid #555;
     border-radius:5px;
