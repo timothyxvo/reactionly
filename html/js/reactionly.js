@@ -124,7 +124,7 @@ function playerStateChange(event) {
 function onUploadSuccess(event) {
     // Remove Recorder widget and Youtube player from view
     $("#widget").addClass("hide");
-    $("afterHelp").addClass("hide");
+    $("#afterHelp").addClass("hide");
     $("#player").remove();
     // Un-hide our social media share icons
     $("#share").removeClass("hide");
