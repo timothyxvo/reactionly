@@ -114,9 +114,17 @@ function onProcessingComplete(event) {
     });
 }
 
+function playerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+        $("#player").addClass("hide");
+        $("#afterHelp").removeClass("hide");
+    }
+}
+
 function onUploadSuccess(event) {
     // Remove Recorder widget and Youtube player from view
     $("#widget").addClass("hide");
+    $("afterHelp").addClass("hide");
     $("#player").remove();
     // Un-hide our social media share icons
     $("#share").removeClass("hide");
@@ -147,8 +155,11 @@ function onStateChange(event) {
           playerVars: {
               autoplay: 1
           },
-          events: {}
+          events: {
+            'onStateChange': playerStateChange
+          }
       });
+      $("#help").addClass("hide");
     }
     else if (event.data.state == YT.UploadWidgetState.PENDING) {
         player.stopVideo();
