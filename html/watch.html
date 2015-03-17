@@ -56,7 +56,7 @@
                 $(document).ready(function(){
                     var counter = 0;
                     var curRow = "<div class='pure-g'>";
-                    $.ajax({url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Reactionly&maxResults=50&key=AIzaSyDalXj94pqImZAVnkYA6ikUTTo141CHWB0", success: function(result){
+                    $.ajax({url: "https://www.googleapis.com/youtube/v3/search?publishedAfter=2015-03-01T00%3A00%3A00-08%3A00&part=snippet&q=reactionly&type=video&key=AIzaSyDalXj94pqImZAVnkYA6ikUTTo141CHWB0", success: function(result){
                             console.log(result.items.length);
                             $.each(result.items, function(i, video) {
                                 if (result.items[i].id.kind == "youtube#video") {
