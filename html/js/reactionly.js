@@ -100,6 +100,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onProcessingComplete(event) {
+    $("#reload").removeClass("hide");
     player = new YT.Player('reaction', {
             height: 390,
             width: 640,
