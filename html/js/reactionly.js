@@ -27,7 +27,6 @@ var videoList =
 "SIWLR5g0G74",
 "AIg4RF2cRBk",
 "6v0oLiWlB-M",
-"1fjDR0BlYQs",
 "DzlH5SDGoyA",
 "ge9828xpn_8",
 "qGXzT1FdJsk",
@@ -163,6 +162,10 @@ function onStateChange(event) {
     }
     else if (event.data.state == YT.UploadWidgetState.PENDING) {
         player.stopVideo();
+    }
+    else if (event.data.state == YT.UploadWidgetState.ERROR) {
+        open("http://reactionly.redirectme.net/reactionly.html");
+        window.close();
     }
 }
 
